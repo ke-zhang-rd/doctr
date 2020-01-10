@@ -591,8 +591,10 @@ def determine_push_rights(*, branch_whitelist, TRAVIS_BRANCH,
         canpush = False
 
     if fork:
-        print("The website and docs are not pushed to gh-pages on fork builds.", file=sys.stderr)
-        canpush = False
+        #print("The website and docs are not pushed to gh-pages on fork builds.", file=sys.stderr)
+        print("This build is for a forked repo. fork check was disabled in mannully"
+        "installed doctr to process build.")
+        canpush = True
 
     if last_commit_by_doctr():
         print(red("The last commit on this branch was pushed by doctr. Not pushing to "
